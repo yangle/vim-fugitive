@@ -285,7 +285,7 @@ function! s:UserCommandList(...) abort
     let tree = s:Tree(dir)
     if empty(tree)
       call add(git, '--git-dir=' . FugitiveGitPath(dir))
-    elseif len(tree) && s:cpath(tree) !=# s:cpath(getcwd())
+    elseif len(tree)
       if fugitive#GitVersion(1, 8, 5)
         call extend(git, ['-C', FugitiveGitPath(tree)])
       else
